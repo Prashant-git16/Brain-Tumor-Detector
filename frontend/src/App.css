@@ -1,0 +1,84 @@
+/* TumorDetector – full-width reset, all design lives in App.jsx inline styles */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  background: #F4F7FA;
+  color: #1A2B3C;
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ── Full-bleed wrappers: header / hero / footer must never be capped ── */
+header,
+footer,
+.hero-banner {
+  width: 100%;
+}
+
+/* ── Inner content containers: stretch to full viewport width ── */
+.inner-container {
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ── Three-column grid: uses all available horizontal space ── */
+.layout-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 260px 1fr 260px;
+  gap: 22px;
+  padding: 28px 24px;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .layout-grid {
+    grid-template-columns: 220px 1fr 220px;
+  }
+}
+
+@media (max-width: 900px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Animations (kept here so they're always loaded) ── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
